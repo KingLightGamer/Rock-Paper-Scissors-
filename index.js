@@ -17,3 +17,26 @@ console.log(getHumanChoice);
 
 let humanScore = 0;
 let computerScore = 0;
+function playRound(humanChoice, computerChoice) {
+  humanChoice = humanChoice.toLowerCase();
+
+  if (humanChoice === computerChoice) {
+    console.log("Tie!");
+  } else if (
+    (humanChoice === "rock" && computerChoice === "scissors") ||
+    (humanChoice === "paper" && computerChoice === "rock") ||
+    (humanChoice === "scissors" && computerChoice === "paper")
+  ) {
+    console.log(`You won! ${humanChoice} beat ${computerChoice}`);
+    humanScore++;
+  } else {
+    console.log(`You lose! ${computerChoice} beat ${humanChoice}`);
+    computerScore++;
+  }
+
+  console.log(`Score - Player: ${humanScore}, Computer: ${computerScore}`);
+}
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+
+playRound(humanSelection, computerSelection);
